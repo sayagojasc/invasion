@@ -4,13 +4,13 @@ import datetime
 
 # Create your models here.
 
-def year_choices():
+def periodos():
     return [(r, str(r)) for r in range(2015, datetime.date.today().year+2)]
 
-def current_year():
+def periodo_actual():
     return datetime.date.today().year
 
-YEAR_CHOICES = year_choices()
+PERIODOS = periodos()
 
 class InformeAbstracto(models.Model):
 
@@ -18,7 +18,7 @@ class InformeAbstracto(models.Model):
         abstract = True
 
     iglesia     = models.ForeignKey('iglesias.Iglesia', on_delete=models.PROTECT)
-    periodo     = models.IntegerField(choices=YEAR_CHOICES, default=current_year)
+    periodo     = models.IntegerField(choices=PERIODOS, default=periodo_actual)
     respuesta   = models.IntegerField(choices=Respuesta.choices, default=Respuesta.NO_INFORMADO)
     observacion = models.TextField(blank=True)
 

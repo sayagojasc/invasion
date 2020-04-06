@@ -3,9 +3,9 @@ from .models import Pais, Provincia, Ciudad
 
 # Register your models here.
 
-class CiudadAdmin(admin.ModelAdmin):
-    search_fields = ['nombre']
+# class CiudadAdmin(admin.ModelAdmin):
+#     search_fields = ['nombre']
 
 admin.site.register(Pais)
 admin.site.register(Provincia)
-admin.site.register(Ciudad, CiudadAdmin)
+admin.site.register(Ciudad)
