@@ -18,7 +18,7 @@ class Provincia(models.Model):
         verbose_name_plural = 'Provincias'
         ordering = ['pais__nombre']
         
-    pais    = models.ForeignKey(Pais, on_delete=models.PROTECT)
+    pais    = models.ForeignKey(Pais, on_delete=models.PROTECT, related_name='provincias')
     nombre  = models.CharField(max_length=30)
 
     def __str__(self):
